@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 n=int(input())
 dis=[[0 for j in range(n)] for i in range(n)]
 
