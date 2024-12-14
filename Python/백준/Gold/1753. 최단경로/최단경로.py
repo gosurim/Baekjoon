@@ -23,12 +23,13 @@ while q.qsize()>0:
         vis[now]=True
         for tmp in a[now]:
             next=tmp[0]
-            value=tmp[1]
-            if dist[next]>dist[now]+value:
-                dist[next]=dist[now]+value
+            w=tmp[1]
+            if dist[next]>dist[now]+w:
+                dist[next]=dist[now]+w
                 q.put((dist[next], next))
 
 for i in range(1,v+1):
     if vis[i]:
         print(dist[i])
-    else: print("INF")
+    else: 
+        print("INF")
