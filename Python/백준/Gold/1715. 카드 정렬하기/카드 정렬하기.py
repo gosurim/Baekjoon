@@ -1,21 +1,20 @@
-#33
 from queue import PriorityQueue
 n=int(input())
-pq=PriorityQueue()
+q=PriorityQueue()
 
 for _ in range(n):
     data=int(input())
-    pq.put(data)
+    q.put(data)
 
 data1=0
 data2=0
 sum=0
 
-while pq.qsize()>1:
-    data1=pq.get() # pop 2번하는 패턴!
-    data2=pq.get()
+while q.qsize()>1:
+    data1=q.get()
+    data2=q.get()
     temp=data1+data2
     sum+=temp
-    pq.put(temp)
+    q.put(temp)
 
 print(sum)
