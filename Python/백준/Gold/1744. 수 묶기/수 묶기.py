@@ -1,40 +1,39 @@
-# 34
 from queue import PriorityQueue
 n=int(input())
-plus=PriorityQueue()
-minus=PriorityQueue()
+pq=PriorityQueue()
+mq=PriorityQueue()
 one=0
 zero=0
 
 for i in range(n):
-    data=int(input())
-    if data>1:
-        plus.put(data*-1) # 내림차순 정렬..?
-    elif data==1:
+    x=int(input())
+    if x>1:
+        pq.put(x*-1)
+    elif x==1:
         one+=1
-    elif data==0:
+    elif x==0:
         zero+=1
     else:
-        minus.put(data)
+        mq.put(x)
 
 sum=0
 
-while plus.qsize()>1:
-    first=plus.get()*-1
-    second=plus.get()*-1
-    sum+=first*second
+while pq.qsize()>1: # 양수 처리
+    x1=pq.get()*-1
+    x2=pq.get()*-1
+    sum+=x1*x2
 
-if plus.qsize()>0:
-    sum+=plus.get()*-1
+if pq.qsize()>0:
+    sum+=pq.get()*-1
 
-while minus.qsize()>1:
-    first=minus.get()
-    second=minus.get()
-    sum+=first*second
+while mq.qsize()>1:
+    x1=mq.get()
+    x2=mq.get()
+    sum+=x1*x2
 
-if minus.qsize()>0:
+if mq.qsize()>0:
     if zero==0:
-        sum+=minus.get()
+        sum+=mq.get()
 
 sum+=one
 print(sum)
