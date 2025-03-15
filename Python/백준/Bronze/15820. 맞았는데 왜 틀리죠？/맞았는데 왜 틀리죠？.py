@@ -13,7 +13,7 @@ for _ in range(ss):
 
 if flag1 and flag2:
     print("Accepted")
-elif flag2:
+elif not flag1:
     print("Wrong Answer")
 else: print("Why Wrong!!!")
     
